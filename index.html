@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Timee 时币：与生命时间绑定的货币制度</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.85));
+    }
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f97316, #ea580c);
+      box-shadow: 0 0 14px rgba(248, 113, 113, 0.7);
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.15);
+      border: 1px solid rgba(45, 212, 191, 0.4);
+      font-size: 12px;
+      color: #a5f3fc;
+    }
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34,197,94,0.8);
+    }
+
+    main { padding: 32px 0 80px; }
+    section { padding: 40px 0; border-bottom: 1px solid rgba(31,41,55,0.8); }
+    h1, h2, h3 { margin: 0 0 16px; }
+    h1 {
+      font-size: clamp(28px, 4vw, 34px);
+      line-height: 1.2;
+    }
+    h2 {
+      font-size: 20px;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+    }
+    h3 { font-size: 16px; margin-top: 20px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 28px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      header { position: static; }
+    }
+    .hero-tagline {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 420px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 14px;
+      border: 1px solid rgba(148,163,184,0.7);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .btn-primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #0b1120;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(56,189,248,0.4);
+    }
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+    .btn-ghost:hover {
+      background: rgba(15,23,42,0.9);
+    }
+
+    .hero-card {
+      border-radius: 16px;
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.14), transparent 55%),
+                  linear-gradient(to bottom right, rgba(15,23,42,0.96), rgba(15,23,42,0.95));
+      border: 1px solid rgba(55,65,81,0.9);
+      padding: 18px 18px 16px;
+      box-shadow: 0 22px 60px rgba(15,23,42,0.9);
+      font-size: 13px;
+    }
+    .hero-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .hero-stat-value {
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+    .hero-divider {
+      border-bottom: 1px dashed rgba(75,85,99,0.9);
+      margin: 10px 0 8px;
+    }
+    .hero-note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 8px;
+    }
+    .pill-mini {
+      display: inline-block;
+      padding: 1px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,0.96));
+      border-radius: 14px;
+      padding: 16px 15px;
+      border: 1px solid rgba(31,41,55,0.95);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.85);
+      font-size: 13px;
+    }
+    .card-title {
+      font-size: 14px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .card-tag {
+      display: inline-block;
+      padding: 1px 8px;
+      border-radius: 999px;
+      background: rgba(56,189,248,0.12);
+      color: #7dd3fc;
+      font-size: 11px;
+      margin-bottom: 6px;
+    }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    li { margin-bottom: 4px; }
+
+    footer {
+      padding: 18px 0 28px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span>TIMEE</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">什么是时币</a>
+        <a href="#rules">硬规则</a>
+        <a href="#co-govern">共建共治</a>
+        <a href="#safety">风险与防操控</a>
+        <a href="#future">AI 与未来社会</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section>
+      <div class="hero-grid">
+        <div>
+          <div class="pill">
+            <span class="pill-dot"></span>
+            宪章 v0.1 · 公开征求意见
+          </div>
+          <h1>Timee 时币：与生命时间绑定的公共货币制度</h1>
+          <p class="hero-tagline">
+            每一位自然人，自出生起按
+            <strong>1 TEE / 分钟</strong>
+            的固定速率获得时币；人人平等，一人一账户，不可剥夺。
+            时币用于交换物质与服务，也用于自愿捐赠，支持公共设施与社会安全网。
+          </p>
+          <div class="hero-actions">
+            <!-- TODO: 把链接指向你托管宪章 PDF 或 GitHub 仓库 -->
+            <a class="btn btn-primary" href="#" target="_blank" rel="noreferrer">
+              阅读《时币（Timee/TEE）宪章》
+            </a>
+            <a class="btn btn-ghost" href="#co-govern">
+              了解如何参与共建共治
+            </a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-stat">
+            <span class="hero-stat-label">发行速率 r</span>
+            <span class="hero-stat-value">1 TEE / 分钟 / 人</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">公平性</span>
+            <span class="hero-stat-value">同一时刻 · 同一生存分钟 · 同额度</span>
+          </div>
+          <div class="hero-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">个人账户</span>
+            <span class="hero-stat-value">一人一账户 · 不可剥夺</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">转账安全</span>
+            <span class="hero-stat-value">P2P 默认 72 小时可撤销</span>
+          </div>
+          <div class="hero-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">自然死亡余额</span>
+            <span class="hero-stat-value">不继承 · 归入公共池 PP</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">公共池治理</span>
+            <span class="hero-stat-value">一人一票 · AI 辅助分析</span>
+          </div>
+          <p class="hero-note">
+            本站展示的是规则与机制设计，而非炒作某种代币价格。
+            Timee 不做 ICO，不承诺投资收益，不提供法币兑换。
+          </p>
+          <div class="pill-mini">
+            目前处于小规模设计与试验阶段 · 一切规则可被审计与质询
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 关于：是什么 & 为什么 -->
+    <section id="about">
+      <h2>一、Timee 是什么？为什么与每个人的时间绑定？</h2>
+      <p>
+        时币（Timee，代码 TEE）是一种与个人生存时间绑定的货币制度。
+        它的出发点是：在不确定的经济环境和可能大量失业的时代，每个人起码应该拥有
+        <strong>与自己生命时间相对应的一份、不可被剥夺的基本权利与记账单位</strong>。
+      </p>
+      <p>
+        Timee 的核心思想不是炒币，而是：
+      </p>
+      <ul>
+        <li><strong>时间面前人人同权</strong>：同一时刻，同一生存分钟，产生同额度时币。</li>
+        <li><strong>保障与尊严</strong>：在极端情况下，可通过公共池与基础包配给，保障最低生存。</li>
+        <li><strong>共建公共品</strong>：自然死亡未使用的余额，归入公共池，用于公共设施与社会安全网。</li>
+        <li><strong>鼓励美德而非强制</strong>：公共池捐赠是自愿行为，禁止以公共名义强制剥夺个人资产。</li>
+      </ul>
+    </section>
+
+    <!-- 硬规则 -->
+    <section id="rules">
+      <h2>二、硬规则：Timee 不会随意更改的部分</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">发行与账户</div>
+          <ul>
+            <li>发行速率固定：<strong>1 TEE / 分钟 / 人</strong>。</li>
+            <li>一人一账户：禁止多身份重复申领。</li>
+            <li>个人所有不可剥夺：未经本人同意不得划转、代扣或冻结（除极端风控与追偿规则外）。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">转账与安全</div>
+          <ul>
+            <li>个人转账（P2P）默认 72 小时可撤销，入账先进入“暂定余额”。</li>
+            <li>暂定余额在撤销窗口内受到用途和额度限制，防止诈骗资金快速二次转移。</li>
+            <li>商户消费与合约结算按不同规则处理，走售后与仲裁，不滥用 P2P 撤销。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">死亡与公共池</div>
+          <ul>
+            <li>自然死亡不继承：个人未用完的时币余额，不进入传统继承链。</li>
+            <li>符合规则的自然死亡余额，归入公共池（PP），专用于公共服务与设施建设。</li>
+            <li>公共池透明可审计，接受社会监督。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">公共池治理</div>
+          <ul>
+            <li>一人一票：公共池支出由全体账户持有者投票决定。</li>
+            <li>AI 负责提供多种方案与影响分析，人类做最终决策。</li>
+            <li>所有提案、拨付、验收与审计报告都应公开可查。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">追偿与反诈骗</div>
+          <ul>
+            <li>对欺诈/胁迫情形设立追偿基金（RF），在严格规则下提供有限救济。</li>
+            <li>资金来源与赔付结果透明公布，防止滥用与骗保。</li>
+            <li>命中高风险时可触发延迟、冻结与多 AI 模型风控判定。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">基础包与社会安全网</div>
+          <ul>
+            <li>当社会供给不足或出现大规模失业时，可通过配给制基础包兜底。</li>
+            <li>基础包的范围、额度与执行方式，由公共池治理流程决策。</li>
+            <li>目标是在极端情形下，仍保障每个人的基本生存与尊严。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 共建共治 -->
+    <section id="co-govern">
+      <h2>三、共建共治：不仅是一个“钱包”，而是一套可参与的制度</h2>
+      <p>
+        Timee 不是一个单一公司控制的钱包，而是一套可以被公开讨论、批评、改进和实施的制度。
+        网站只是其中的一个入口。未来将逐步开放以下共建方向：
+      </p>
+      <div class="grid">
+        <div class="card">
+          <div class="card-tag">生态扩展</div>
+          <div class="card-title">钱包与客户端</div>
+          <ul>
+            <li>第三方可以开发符合宪章的钱包与客户端。</li>
+            <li>必须尊重：一人一账户、72 小时可撤销、暂定余额限制等硬规则。</li>
+            <li>未来会提供开发指南与参考实现。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-tag">数字服务</div>
+          <div class="card-title">AI 与数字服务市场</div>
+          <ul>
+            <li>支持用 TEE 支付 AI 服务、API、工具订阅等低风险数字服务。</li>
+            <li>通过公共列表和透明评价，降低信息不对称和诈骗。</li>
+            <li>在失业增加的情况下，鼓励通过数字劳动与数字服务获取更多机会。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-tag">公共项目</div>
+          <div class="card-title">公共池提案与公共建设</div>
+          <ul>
+            <li>任何人都可以提出公共池使用的提案（如住房、教育、照护、基础设施）。</li>
+            <li>AI 帮你把模糊想法整理成标准提案，人类一人一票做决定。</li>
+            <li>帮助在大规模失业和结构性变化中，建设更有韧性的公共安全网。</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:12px;font-size:13px;color:#9ca3af;">
+        当前阶段：我们先在文档与小规模试验层面验证规则的可行性。
+        当你有任何想法（例如新的公共项目、失业者支持机制、AI 风控方案），可以通过仓库 Issue 或邮件形式提交，
+        后续将提供更方便的提案入口与模板。
+      </p>
+    </section>
+
+    <!-- 安全与防操控 -->
+    <section id="safety">
+      <h2>四、安全、风险与防操控：AI 参与但不取代人类</h2>
+      <p>
+        Timee 的设计从一开始就假设会面对诈骗、胁迫、洗钱、以及可能的权力滥用。
+        宪章中的威胁模型和风控条款，就是为了在制度层面降低这些风险。
+      </p>
+      <h3>1. 风险与防控框架</h3>
+      <ul>
+        <li>72 小时撤销窗口 + 暂定余额限制，阻断诈骗资金的快速扩散。</li>
+        <li>新收款人、设备变更、异常速度等会触发延迟或冻结，由规则和 AI 共同判断。</li>
+        <li>对“可疑高风险用途”（如匿名兑换、赌博等）设置明确黑名单。</li>
+      </ul>
+      <h3>2. AI 的角色：多模型判定 + 人类终裁</h3>
+      <ul>
+        <li>对于大额或敏感交易，可使用多个 AI 模型独立评估“是否合理”与“是否需要人工复核”。</li>
+        <li>AI 只给出建议与风险评分，不直接做最终裁决。</li>
+        <li>涉及资金冻结、封禁、追偿与公共池支出时，必须由人类在规则框架下做最终决定。</li>
+      </ul>
+      <h3>3. 防止被少数人操控</h3>
+      <ul>
+        <li>规则与参数公开、版本化、可审计，避免“黑箱规则”。</li>
+        <li>公共池与追偿基金的收支、赔付、拒赔与追缴情况要定期公布统计（去标识化）。</li>
+        <li>未来可探索多地域、多主体托管，降低单一国家或机构完全控制的可能性。</li>
+      </ul>
+    </section>
+
+    <!-- AI 与未来社会 -->
+    <section id="future">
+      <h2>五、AI、大量失业与未来社会：Timee 能做些什么？</h2>
+      <p>
+        在 AI 导致某些职业大规模消失、劳动市场结构发生剧烈变化的背景下，
+        Timee 想要探索的是：如何通过与生命时间绑定的货币制度，为每个人提供
+        一条更稳定、更可参与的路径。
+      </p>
+      <ul>
+        <li>即使工作机会不稳定，每个人的生存时间仍然稳定增加，对应的时币收入也持续存在。</li>
+        <li>通过公共池与一人一票治理，可以优先支持失业人群、照护者、长期病患等脆弱群体。</li>
+        <li>通过数字服务和共建生态，为不同技能的人提供新的贡献与收入场景，而不仅仅依赖传统雇佣关系。</li>
+        <li>AI 在其中承担“助手”的角色：帮助发现问题、设计方案、评估影响，而不是替代民主与人类决策。</li>
+      </ul>
+      <p style="font-size:13px;color:#9ca3af;">
+        本站当前仍处于“宪章 + 设计文档”的早期阶段。随着更多人参与讨论与试验，
+        所有规则都可能在公开治理流程中被改进，但会尽可能保持核心原则的稳定性：
+        时间面前人人同权、个人不可被任意剥夺、公共资金公开透明、人类最终决策。
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>Timee / TEE · 与生命时间绑定的时币制度 · 当前版本：宪章 v0.1（公开征求意见稿）</div>
+      <div style="margin-top:4px;">
+        本页面仅为设计与讨论用途，不构成投资建议或法律意见。
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
