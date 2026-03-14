@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Timee FAQ · 常见问题</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --card: #111827;
+      --accent: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.85));
+    }
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f97316, #ea580c);
+      box-shadow: 0 0 14px rgba(248, 113, 113, 0.7);
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    main { padding: 32px 0 60px; }
+    h1, h2 { margin: 0 0 16px; }
+    h1 { font-size: 24px; }
+    h2 {
+      font-size: 16px;
+      margin-top: 22px;
+    }
+    p { margin: 6px 0 10px; font-size: 14px; }
+    .muted { color: var(--muted); font-size: 13px; }
+    .qa {
+      border-bottom: 1px solid rgba(31,41,55,0.8);
+      padding: 14px 0 18px;
+    }
+    ul { margin: 4px 0 0 18px; padding: 0; font-size: 14px; }
+    li { margin-bottom: 4px; }
+    footer {
+      padding: 16px 0 26px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span>TIMEE</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html#about">什么是时币</a>
+        <a href="index.html#rules">硬规则</a>
+        <a href="index.html#join">注册与参与</a>
+        <a href="index.html#co-govern">共建共治</a>
+        <a href="index.html#market">交易与撮合</a>
+        <a href="index.html#safety">风险与防操控</a>
+        <a href="index.html#future">AI 与未来社会</a>
+        <a href="docs.html">文档</a>
+        <a href="faq.html">FAQ</a>
+        <a href="proposals.html">提案模板</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Timee 常见问题（FAQ）</h1>
+    <p class="muted">
+      如果下面没有覆盖到你的问题，可以在 GitHub Issues 中提问，
+      或在提案模板页面按照格式写下你的担忧和建议。
+    </p>
+
+    <div class="qa">
+      <h2>1. Timee 和比特币、其他虚拟币有什么根本区别？</h2>
+      <p>
+        Timee 首先是一套与生命时间绑定的制度，而不是一个用于投机的资产。
+        它的发行不依赖挖矿或质押，而是：每位自然人生存的每一分钟，都按同样速率获得 1 TEE。
+        规则强调的是公平性、安全与公共用途，而不是价格涨跌。
+      </p>
+    </div>
+
+    <div class="qa">
+      <h2>2. Timee 会不会被政府或大公司拿去“控制人”？</h2>
+      <p>
+        风险始终存在，所以 Timee 从设计上就尽量降低这种可能：
+      </p>
+      <ul>
+        <li>规则和参数全部公开、版本化、可审计，不能在暗处悄悄改。</li>
+        <li>公共池治理坚持一人一票，而不是“有钱票多”。</li>
+        <li>AI 只能做顾问和风控辅助，不能直接决策冻结或剥夺个人资产。</li>
+        <li>未来会探索多地域、多主体托管，避免单一实体控制全部基础设施。</li>
+      </ul>
+      <p class="muted">
+        即便如此，这仍然需要持续的社会监督和批评，欢迎在文档或提案中指出可能的滥用路径。
+      </p>
+    </div>
+
+    <div class="qa">
+      <h2>3. Timee 和“基本收入（UBI）”是什么关系？</h2>
+      <p>
+        两者都关心保障基本生活，但方式不同：
+      </p>
+      <ul>
+        <li>UBI 通常是由政府或机构定期发放法币。</li>
+        <li>Timee 是与生命时间绑定的记账单位，规则本身不依赖某个政府预算。</li>
+        <li>Timee 的公共池可以在治理同意的前提下，用于类似 UBI 或基础包的发放。</li>
+      </ul>
+    </div>
+
+    <div class="qa">
+      <h2>4. 现在能不能实名认证、正式领到时币？</h2>
+      <p>
+        目前不能。现在的阶段是：
+      </p>
+      <ul>
+        <li>在理念和规则层面做设计和公开讨论；</li>
+        <li>通过意向账户名登记，帮助未来设计一人一账户体系；</li>
+        <li>暂时不发放“可自由使用的真实 TEE 余额”，也不接入法币兑换。</li>
+      </ul>
+      <p>
+        等身份唯一性、风控和合规路径更清晰后，才会小规模试点真实账户。
+      </p>
+    </div>
+
+    <div class="qa">
+      <h2>5. 为何选择 1 TEE / 分钟，而不是每秒或每天？</h2>
+      <p>
+        每分钟的粒度在“足够细腻”和“方便理解”之间取得了折中：
+      </p>
+      <ul>
+        <li>每秒 1 TEE 太大，会导致年累积分布过高，需要复杂的参数调整。</li>
+        <li>每天 1 TEE 又太粗糙，不利于表达“时间在流动”的直观感受。</li>
+      </ul>
+      <p>
+        实际上，任何固定速率都可以通过参数重标定，本质是「时间面前人人同权」这一原则。
+      </p>
+    </div>
+
+    <div class="qa">
+      <h2>6. 在中国这样的监管环境下，Timee 会不会违法？</h2>
+      <p>
+        Timee 会尽量与当前监管红线错位：
+      </p>
+      <ul>
+        <li>不做 ICO，不对公众募集资金，不承诺投资收益。</li>
+        <li>不在境内提供 TEE/法币兑换或投机型交易服务。</li>
+        <li>更接近“制度设计 + 时间记账 + 公共治理实验”，而非传统意义上的虚拟货币业务。</li>
+      </ul>
+      <p class="muted">
+        最终是否合规还取决于各地具体法律，需要与专业法律团队持续评估。
+      </p>
+    </div>
+
+    <div class="qa">
+      <h2>7. 如果出现大规模失业，Timee 实际能帮上什么忙？</h2>
+      <p>
+        Timee 不能单独解决所有经济问题，但可以提供几层额外的支撑：
+      </p>
+      <ul>
+        <li>每个人都拥有与自己时间挂钩的记账单位和一票治理权。</li>
+        <li>公共池可以优先支持失业人群、照护者、长期病患等脆弱群体。</li>
+        <li>通过数字服务市场和项目悬赏，为不同技能的人创造新的贡献场景。</li>
+      </ul>
+    </div>
+
+    <div class="qa">
+      <h2>8. AI 会不会有一天“控制”整个 Timee？</h2>
+      <p>
+        在设计上，我们刻意限制了 AI 的权限：
+      </p>
+      <ul>
+        <li>AI 可以做风险预警、数据分析、方案生成。</li>
+        <li>AI 不能独立拥有投票权，更不能最终决定冻结或剥夺个人资产。</li>
+        <li>所有关键决策（规则修订、公共池拨款、重大追偿）都需要人类在框架内投票或审批。</li>
+      </ul>
+    </div>
+
+    <div class="qa">
+      <h2>9. 预留账户名有没有法律效力？别人会不会抢？</h2>
+      <p>
+        目前的账户名预留只是“表达意愿”的工具：
+      </p>
+      <ul>
+        <li>不构成对用户名的法律权利承诺。</li>
+        <li>未来正式上线时，会综合考虑唯一性、公平性以及你在社区中的参与情况。</li>
+        <li>真正的法律保护更多依赖商标、著作权等，而不是用户名本身。</li>
+      </ul>
+    </div>
+
+    <div class="qa">
+      <h2>10. 我如果不同意某条规则，能做什么？</h2>
+      <p>
+        非常欢迎不同意见。你可以：
+      </p>
+      <ul>
+        <li>在文档或提案模板的基础上，写一份详细的“反对意见说明”。</li>
+        <li>提出替代方案，并讨论其优点与潜在风险。</li>
+        <li>在未来正式治理流程中，通过投票、复议机制等方式推动修订。</li>
+      </ul>
+      <p class="muted">
+        Timee 不追求“人人完全同意”的假象，而是希望把真实的分歧暴露出来，
+        在阳光下慢慢修正。
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>Timee / TEE · FAQ · 如果你有新的问题，欢迎在 GitHub Issues 中提出</div>
+    </div>
+  </footer>
+</body>
+</html>
