@@ -64,6 +64,8 @@
       display: flex;
       gap: 16px;
       font-size: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
     .pill {
       display: inline-flex;
@@ -240,7 +242,9 @@
         <a href="#market">交易与撮合</a>
         <a href="#safety">风险与防操控</a>
         <a href="#future">AI 与未来社会</a>
-        <a href="#docs">文档</a>
+        <a href="docs.html">文档</a>
+        <a href="faq.html">FAQ</a>
+        <a href="proposals.html">提案模板</a>
       </div>
     </div>
   </header>
@@ -263,7 +267,7 @@
           </p>
           <div class="hero-actions">
             <!-- TODO: 把链接指向你托管宪章 PDF 或 GitHub 仓库 -->
-            <a class="btn btn-primary" href="#" target="_blank" rel="noreferrer">
+            <a class="btn btn-primary" href="docs.html" target="_self">
               阅读《时币（Timee/TEE）宪章》
             </a>
             <a class="btn btn-ghost" href="#co-govern">
@@ -395,8 +399,8 @@
         为了让不同背景的人都能找到合适的参与方式，我们设计了三层参与路径：
       </p>
       <ul>
-        <li><strong>轻参与</strong>：理解理念、表达认同或疑问。</li>
-        <li><strong>中参与</strong>：提出具体意见、风险担忧、改进建议。</li>
+        <li><strong>轻参与</strong>：理解理念、表达认同或疑问（可从 FAQ 开始）。</li>
+        <li><strong>中参与</strong>：提出具体意见、风险担忧、改进建议（可用提案模板）。</li>
         <li><strong>深参与</strong>：共建规则文本、设计应用场景、参与原型开发与试验。</li>
       </ul>
 
@@ -438,8 +442,7 @@
       <h3>2. 参与规则讨论与文档改进</h3>
       <ul>
         <li>
-          你可以在宪章和设计文档对应的仓库里提出修改建议、翻译、评论和问题。
-          对每一条硬规则，欢迎公开讨论是否清晰、公平、可执行。
+          你可以在文档页查看宪章与设计文档，并提出修改建议、翻译、评论和问题。
         </li>
         <li>
           所有规则修改都应通过公开的版本控制和变更记录完成，而不是在暗处悄悄改动。
@@ -592,58 +595,6 @@
         本站当前仍处于“宪章 + 设计文档”的早期阶段。随着更多人参与讨论与试验，
         所有规则都可能在公开治理流程中被改进，但会尽可能保持核心原则的稳定性：
         时间面前人人同权、个人不可被任意剥夺、公共资金公开透明、人类最终决策。
-      </p>
-    </section>
-
-    <!-- 附：宪章与相关文档 -->
-    <section id="docs">
-      <h2>附：宪章与相关文档</h2>
-      <p>
-        Timee 的一切设计都以公开文档为基础，任何人都可以阅读、质疑和提出修改建议。
-        当前核心文档包括：
-      </p>
-      <ul>
-        <li>
-          <strong>《时币（Timee/TEE）系统宪章与实施规范》 v0.1</strong>：
-          定义发行规则、一人一账户、72 小时撤销、死亡归公、公共池治理、追偿基金等核心机制。
-          （链接稍后将在 timee.world 上补充）
-        </li>
-        <li>
-          <strong>《Timee 战略：发布、护城河、应用场景与交易平台》</strong>：
-          讨论如何发布到各个平台、如何建立类似比特币的长期护城河、
-          以及如何发展稳定应用场景和“多 AI 模型判断的交易合理性”。
-        </li>
-        <li>
-          <strong>《域名、治理与 AI 运维实施要点》</strong>：
-          涵盖 timee.world 等域名的抗抢夺设计、共建共治区域与防诈机制、
-          以及如何用 AI 辅助运维，同时保证关键决策始终由人类掌握。
-        </li>
-      </ul>
-      <h3>Timee 四条长期承诺（草案）</h3>
-      <ul>
-        <li>
-          <strong>1. 永不成为纯粹的“炒币项目”</strong>：
-          不做 ICO，不对公众募资，不承诺投资回报，不运营价格投机型交易所。
-        </li>
-        <li>
-          <strong>2. 永不把治理权卖给资金</strong>：
-          公共池治理坚持一人一票，而不是按持币多少投票；
-          不允许用购买治理代币的方式控制制度走向。
-        </li>
-        <li>
-          <strong>3. 永远允许批评和反对</strong>：
-          规则与参数公开可查，任何人可以提出批评和反对意见，
-          风险与弊端会被认真记录和回应，而不是被隐藏。
-        </li>
-        <li>
-          <strong>4. AI 永远只是顾问，不是统治者</strong>：
-          AI 可以帮助分析、做方案、发出风险预警，但不能代替人类投票和最终裁决，
-          尤其不能在无人复核的情况下直接冻结或剥夺个人时币。
-        </li>
-      </ul>
-      <p style="font-size:13px;color:#9ca3af;">
-        随着项目推进，这些承诺本身也会通过公开治理流程被正式写入宪章或相关附录。
-        在此之前，我们自觉以这四条作为 Timee 的最低自律标准。
       </p>
     </section>
   </main>
