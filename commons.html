@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Timee Commons · 公共知识与资源广场</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --card: #111827;
+      --accent: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.85));
+    }
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f97316, #ea580c);
+      box-shadow: 0 0 14px rgba(248, 113, 113, 0.7);
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    main { padding: 32px 0 60px; }
+    h1, h2, h3 { margin: 0 0 16px; }
+    h1 { font-size: 24px; }
+    h2 {
+      font-size: 18px;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin-top: 28px;
+    }
+    h3 { font-size: 15px; margin-top: 18px; }
+    p { margin: 6px 0 10px; font-size: 14px; }
+    .muted { color: var(--muted); font-size: 13px; }
+    .card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,0.96));
+      border-radius: 14px;
+      padding: 16px 15px;
+      border: 1px solid rgba(31,41,55,0.95);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.85);
+      font-size: 13px;
+      margin-top: 14px;
+    }
+    ul { margin: 4px 0 0 18px; padding: 0; font-size: 14px; }
+    li { margin-bottom: 4px; }
+    footer {
+      padding: 16px 0 26px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span>TIMEE</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html#about">什么是时币</a>
+        <a href="index.html#rules">硬规则</a>
+        <a href="index.html#join">注册与参与</a>
+        <a href="index.html#co-govern">共建共治</a>
+        <a href="index.html#market">交易与撮合</a>
+        <a href="index.html#safety">风险与防操控</a>
+        <a href="index.html#future">AI 与未来社会</a>
+        <a href="docs.html">文档</a>
+        <a href="faq.html">FAQ</a>
+        <a href="proposals.html">提案模板</a>
+        <a href="commons.html">Commons</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Timee Commons · 公共知识与资源广场</h1>
+    <p class="muted">
+      Commons 是一个面向所有人的“建设性贡献广场”：你可以在这里分享对社会、他人有帮助的知识、
+      方案和资源。AI 会帮你把零散的想法整理成结构化内容，并推荐给合适的提案和公共项目。
+    </p>
+
+    <h2>1. 我可以在这里分享什么？</h2>
+    <div class="card">
+      <p>只要是对社会、他人、公共池决策有帮助的内容，都欢迎：</p>
+      <ul>
+        <li>支持失业人群、照护者、长期病患的具体方案或经验。</li>
+        <li>改进社会安全网、基础包、教育与培训的点子和案例。</li>
+        <li>关于防诈骗、防胁迫、防滥用的实战经验、流程建议。</li>
+        <li>对 Timee 规则可能带来问题的分析（批评与风险提示）。</li>
+        <li>其他任何你认为“如果更多人知道，会让世界好一点”的知识与资源。</li>
+      </ul>
+      <p class="muted">
+        不要求一开始就写得很正式，你可以先用自然语言把想法写出来，
+        未来可以交给 AI 或其他志愿者帮忙整理成标准格式。
+      </p>
+    </div>
+
+    <h2>2. 当前阶段：如何提交一条 Commons 贡献？</h2>
+    <div class="card">
+      <p>在还没有专门表单和后端系统之前，我们先用 GitHub Issues 来承接贡献：</p>
+      <ul>
+        <li>
+          打开
+          <a href="https://github.com/dylanshi-cloud/timee-site/issues" target="_blank" rel="noreferrer">
+            Timee 仓库的 Issues 页面
+          </a>。
+        </li>
+        <li>
+          点击「New issue」，标题建议采用格式：
+          <strong>「[Commons] &lt;简短标题&gt;」</strong>。
+        </li>
+        <li>
+          在正文中简单回答三件事：
+          <ul>
+            <li>你想分享的内容是什么？（用你自己的话描述）</li>
+            <li>它希望解决什么问题？主要帮助到谁？</li>
+            <li>如果被误用或滥用，最糟糕的情况是什么？</li>
+          </ul>
+        </li>
+        <li>
+          未来我们会为有代表性的 Commons 条目补充结构化摘要，
+          并在网站或文档中进行引用。
+        </li>
+      </ul>
+      <p class="muted">
+        正式的 Commons 提交流程和界面会在后续阶段上线，目前重心是“先把有价值的想法收集起来”，
+        再用 AI 和人工一起做整理与筛选。
+      </p>
+    </div>
+
+    <h2>3. AI 在 Commons 中会做什么？</h2>
+    <div class="card">
+      <p>在不替代人类决策的前提下，AI 可以承担三类角色：</p>
+      <ul>
+        <li>
+          <strong>整理者</strong>：
+          帮助把自然语言的想法整理成「背景 / 建议 / 影响 / 风险」等结构化段落，
+          方便他人阅读和用于提案。
+        </li>
+        <li>
+          <strong>分类与匹配助手</strong>：
+          为每条 Commons 打标签（如“失业支持”“照护”“风控”“教育”等），
+          并在公共池提案或 FAQ 中推荐相关的 Commons 内容。
+        </li>
+        <li>
+          <strong>风险预警员</strong>：
+          在不看隐私细节的前提下，指出某些建议可能存在的歧视、不公平或被滥用的路径，
+          提醒人类在讨论中重点关注这些点。
+        </li>
+      </ul>
+      <p class="muted">
+        AI 不会在没有人类复核的情况下删除 Commons 条目或做最终裁决，
+        只能给出“建议”和“提醒”。
+      </p>
+    </div>
+
+    <h2>4. Commons 与公共池、提案有什么关系？</h2>
+    <div class="card">
+      <ul>
+        <li>
+          公共池提案（例如基础包、失业支持、照护项目）在撰写时，
+          可以直接引用相关 Commons 条目，作为“背景资料”和“参考方案”。
+        </li>
+        <li>
+          在查看某个提案时，未来的界面可以显示：
+          「与本提案相关的 Commons 条目」，由 AI 根据内容自动匹配。
+        </li>
+        <li>
+          某些经过实践验证的 Commons 内容，可以在网站上标记为“案例”或“最佳实践”，
+          为后续类似问题提供参考。
+        </li>
+      </ul>
+      <p class="muted">
+        这样，Commons 不只是一个“文稿仓库”，而是公共池决策和治理讨论的真实输入源。
+      </p>
+    </div>
+
+    <h2>5. 贡献者能得到什么？</h2>
+    <div class="card">
+      <ul>
+        <li>
+          <strong>时间足迹</strong>：
+          你的 Commons 条目和被引用记录会形成一条“时间足迹”，
+          让你看到自己的想法在制度和项目中留下了哪些痕迹。
+        </li>
+        <li>
+          <strong>声誉与归属感</strong>：
+          在不泄露隐私的前提下，可以在网站上展示“重要 Commons 贡献者”的列表，
+          让更多人认识到你的工作。
+        </li>
+        <li>
+          <strong>未来可能的 TEE 激励</strong>：
+          当记账系统与公共池逐步上线后，可以由治理流程决定是否用少量 TEE
+          对高影响力的 Commons 贡献做象征性激励。
+        </li>
+      </ul>
+      <p class="muted">
+        当前阶段，我们更看重“长期影响”和“对社会的真实帮助”，
+        而不是短期的物质回报。
+      </p>
+    </div>
+
+    <h2>6. 写 Commons 时的一些小建议</h2>
+    <div class="card">
+      <ul>
+        <li>尽量用具体的故事或案例来说明问题，而不是只有抽象概念。</li>
+        <li>同时写下“好的一面”和“可能的副作用”，帮助后来人做更全面的判断。</li>
+        <li>欢迎用批评的视角写 Commons，例如指出 Timee 的某些设计可能带来的风险。</li>
+        <li>如果你不会写长文，可以只写几句话，说明问题和你认为可行的第一步。</li>
+      </ul>
+      <p class="muted">
+        Timee 的目标不是制造一个完美的乌托邦，而是在现实世界的约束下，
+        认真尝试一些也许能让未来好一点的制度。每一条 Commons，都是这个尝试的一部分。
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>Timee / TEE · Commons · 每一条建设性贡献，都是一段时间的痕迹</div>
+    </div>
+  </footer>
+</body>
+</html>
