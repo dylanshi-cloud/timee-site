@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Timee 文档中心</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --card: #111827;
+      --accent: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.85));
+    }
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f97316, #ea580c);
+      box-shadow: 0 0 14px rgba(248, 113, 113, 0.7);
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    main { padding: 32px 0 60px; }
+    h1, h2, h3 { margin: 0 0 16px; }
+    h1 { font-size: 24px; }
+    h2 {
+      font-size: 18px;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin-top: 32px;
+    }
+    h3 { font-size: 15px; margin-top: 20px; }
+    p { margin: 8px 0; }
+    .card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,0.96));
+      border-radius: 14px;
+      padding: 16px 15px;
+      border: 1px solid rgba(31,41,55,0.95);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.85);
+      font-size: 13px;
+      margin-top: 14px;
+    }
+    ul { margin: 6px 0 0 18px; padding: 0; }
+    li { margin-bottom: 4px; }
+    .muted { color: var(--muted); font-size: 13px; }
+    footer {
+      padding: 16px 0 26px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span>TIMEE</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html#about">什么是时币</a>
+        <a href="index.html#rules">硬规则</a>
+        <a href="index.html#join">注册与参与</a>
+        <a href="index.html#co-govern">共建共治</a>
+        <a href="index.html#market">交易与撮合</a>
+        <a href="index.html#safety">风险与防操控</a>
+        <a href="index.html#future">AI 与未来社会</a>
+        <a href="docs.html">文档</a>
+        <a href="faq.html">FAQ</a>
+        <a href="proposals.html">提案模板</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Timee 文档中心</h1>
+    <p class="muted">
+      这里汇总了与 Timee 相关的核心文档。所有文档都在持续迭代，
+      欢迎你阅读、批评、提出改进建议。
+    </p>
+
+    <h2>1. 宪章与实施规范</h2>
+    <div class="card">
+      <h3>《时币（Timee/TEE）系统宪章与实施规范》 v0.1</h3>
+      <p>
+        定义了 Timee 的核心制度，包括：
+        发行速率（一人每分钟 1 TEE）、一人一账户、72 小时可撤销的 P2P 转账、
+        暂定余额与最终余额、死亡不继承与自然死亡归公共池、
+        公共池治理与追偿基金、风险模型与关键流程等。
+      </p>
+      <ul>
+        <li>当前状态：公开征求意见稿（Public Draft）。</li>
+        <li>未来会通过治理流程冻结为稳定版本，并对每次修订进行版本化记录。</li>
+        <li>链接：稍后会在 timee.world 上补充指向 GitHub / PDF 的正式链接。</li>
+      </ul>
+    </div>
+
+    <h2>2. 战略与应用场景</h2>
+    <div class="card">
+      <h3>《Timee 战略：发布、护城河、应用场景与交易平台》</h3>
+      <p>
+        从实践角度讨论 Timee 如何走向现实世界：如何发布到各大平台，
+        如何在制度和叙事层面建立类似比特币的长期护城河，
+        如何发展稳定的原生应用场景（如 AI 服务市场、公共池项目、开源与数字劳动激励），
+        以及如何设计「多 AI 模型判断交易合理性」的机制。
+      </p>
+      <ul>
+        <li>适合快速理解 Timee 的整体方向与可能落地路径。</li>
+        <li>其中的路径图可以作为未来路线图投票与修订的基础。</li>
+      </ul>
+    </div>
+
+    <h2>3. 域名、治理与 AI 运维</h2>
+    <div class="card">
+      <h3>《域名、治理与 AI 运维实施要点》</h3>
+      <p>
+        对如何选择和保护域名（如 timee.world）、如何降低被有权者抢夺官方入口的风险、
+        如何设计共建共治区域（类似 GitHub 的 Apps/Skills），
+        以及如何用 AI 辅助网站与制度的日常运维，给出了一套可执行的建议。
+      </p>
+      <ul>
+        <li>包含：抗抢夺的多入口策略（域名 + IPFS/ENS + 镜像站）。</li>
+        <li>包含：防诈骗与争议处理流程如何与宪章中的追偿基金条款对齐。</li>
+        <li>包含：AI 在监控、初筛与建议中的角色，人类保留最终决策权的边界。</li>
+      </ul>
+    </div>
+
+    <h2>4. Timee 四条长期承诺（草案）</h2>
+    <div class="card">
+      <ul>
+        <li>
+          <strong>1. 永不成为纯粹的“炒币项目”</strong>：
+          不做 ICO，不对公众募资，不承诺投资回报，不运营价格投机型交易所。
+        </li>
+        <li>
+          <strong>2. 永不把治理权卖给资金</strong>：
+          公共池治理坚持一人一票，而不是按持币多少投票；
+          不允许用购买治理代币的方式控制制度走向。
+        </li>
+        <li>
+          <strong>3. 永远允许批评和反对</strong>：
+          规则与参数公开可查，任何人可以提出批评和反对意见，
+          风险与弊端会被认真记录和回应，而不是被隐藏。
+        </li>
+        <li>
+          <strong>4. AI 永远只是顾问，不是统治者</strong>：
+          AI 可以帮助分析、做方案、发出风险预警，但不能代替人类投票和最终裁决，
+          尤其不能在无人复核的情况下直接冻结或剥夺个人时币。
+        </li>
+      </ul>
+      <p class="muted">
+        这些承诺预计会在未来版本中以正式条款形式写入宪章或附录，
+        在那之前，我们自觉以此作为 Timee 的最低自律标准。
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>Timee / TEE · 文档中心 · 当前版本：草案阶段</div>
+    </div>
+  </footer>
+</body>
+</html>
