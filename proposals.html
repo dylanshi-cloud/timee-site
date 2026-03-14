@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Timee 提案模板</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --card: #111827;
+      --accent: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.85));
+    }
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f97316, #ea580c);
+      box-shadow: 0 0 14px rgba(248, 113, 113, 0.7);
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    main { padding: 32px 0 60px; }
+    h1, h2, h3 { margin: 0 0 16px; }
+    h1 { font-size: 24px; }
+    h2 {
+      font-size: 18px;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin-top: 28px;
+    }
+    h3 { font-size: 15px; margin-top: 18px; }
+    p { margin: 6px 0 10px; font-size: 14px; }
+    .muted { color: var(--muted); font-size: 13px; }
+    .card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,0.96));
+      border-radius: 14px;
+      padding: 16px 15px;
+      border: 1px solid rgba(31,41,55,0.95);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.85);
+      font-size: 13px;
+      margin-top: 14px;
+    }
+    ul { margin: 4px 0 0 18px; padding: 0; font-size: 14px; }
+    li { margin-bottom: 4px; }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      background: rgba(15,23,42,0.9);
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    footer {
+      padding: 16px 0 26px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span>TIMEE</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html#about">什么是时币</a>
+        <a href="index.html#rules">硬规则</a>
+        <a href="index.html#join">注册与参与</a>
+        <a href="index.html#co-govern">共建共治</a>
+        <a href="index.html#market">交易与撮合</a>
+        <a href="index.html#safety">风险与防操控</a>
+        <a href="index.html#future">AI 与未来社会</a>
+        <a href="docs.html">文档</a>
+        <a href="faq.html">FAQ</a>
+        <a href="proposals.html">提案模板</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Timee 提案模板</h1>
+    <p class="muted">
+      不需要会写制度文本，你只要按下面的提纲，把你的想法解释清楚，就已经是很好的提案了。
+      未来正式治理上线后，这些提案可以作为投票和讨论的起点。
+    </p>
+
+    <h2>1. 提案适用范围</h2>
+    <div class="card">
+      <p>你可以为这些主题写提案：</p>
+      <ul>
+        <li>公共池（PP）资金如何使用（项目、基础包、公共服务等）。</li>
+        <li>规则或参数的修改建议（例如风控阈值、追偿规则的细节等）。</li>
+        <li>新的应用场景（如 AI 服务市场、工作悬赏平台、线下试点）。</li>
+        <li>对潜在风险或滥用方式的警告，以及防范建议。</li>
+      </ul>
+      <p class="muted">
+        短评或简单问题可以直接去 FAQ 或 Issues，这个模板主要面向“需要系统讨论”的想法。
+      </p>
+    </div>
+
+    <h2>2. 标准提案结构（建议格式）</h2>
+    <div class="card">
+      <h3>（1）标题与基本信息</h3>
+      <ul>
+        <li><strong>提案标题</strong>：一句话概括你想做什么。</li>
+        <li><strong>提案人</strong>：可以用意向账户名或昵称。</li>
+        <li><strong>提案类型</strong>：从以下中选一项或多项：
+          <ul>
+            <li>公共池项目 / 基础包 / 规则修改 / 风控与反诈 / 应用场景 / 其他</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>（2）背景与问题</h3>
+      <ul>
+        <li>你观察到的现实问题是什么？（越具体越好）</li>
+        <li>这个问题影响到了哪些人？（例如失业者、照护者、老年人等）</li>
+        <li>如果什么都不做，最可能出现什么后果？</li>
+      </ul>
+
+      <h3>（3）你的建议方案</h3>
+      <ul>
+        <li>你希望 Timee 做什么？（清楚写出动作和对象）</li>
+        <li>如果涉及公共池，请说明：
+          <ul>
+            <li>预算大致是多少 TEE？</li>
+            <li>分几期拨付？（例如启动费 / 中期检查 / 验收）</li>
+          </ul>
+        </li>
+        <li>如果是规则修改，请说明：
+          <ul>
+            <li>你希望修改哪一条规则或参数？</li>
+            <li>当前文字是什么？你建议改成什么？</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>（4）受益人与影响分析</h3>
+      <ul>
+        <li>主要受益人群是谁？他们大概有多大规模？</li>
+        <li>短期内有什么直接好处？长期可能带来什么结构性变化？</li>
+        <li>是否会对某些人产生负面影响？（哪怕是少数，也请写出来）</li>
+      </ul>
+
+      <h3>（5）风险与失败场景</h3>
+      <ul>
+        <li>你最担心这个提案会如何被滥用？（例如被某些群体占便宜、骗补、洗钱等）</li>
+        <li>如果项目失败或效果不好，会发生什么？</li>
+        <li>有没有“最坏情况”，以及可以提前设定的刹车条件？</li>
+      </ul>
+
+      <h3>（6）验收标准与时间表</h3>
+      <ul>
+        <li>如何判断这个提案“算是成功了”？（尽量用可量化或可观察的指标）</li>
+        <li>大致时间线（例如 3 个月启动、6 个月评估、12 个月复盘）。</li>
+      </ul>
+
+      <h3>（7）与宪章硬规则的兼容性</h3>
+      <ul>
+        <li>确认你的提案不会违反以下硬规则：
+          <ul>
+            <li>一人一账户；</li>
+            <li>个人时币不得被任意剥夺或强制征收；</li>
+            <li>公共池一人一票、透明可审计；</li>
+            <li>AI 只做顾问，人类最终决策。</li>
+          </ul>
+        </li>
+        <li>如果有潜在冲突，请明确指出并解释你的看法。</li>
+      </ul>
+    </div>
+
+    <h2>3. 在 GitHub 上提交提案的步骤（当前方式）</h2>
+    <div class="card">
+      <ol style="margin-left:18px;font-size:14px;">
+        <li>
+          打开
+          <a href="https://github.com/dylanshi-cloud/timee-site/issues" target="_blank" rel="noreferrer">
+            Timee 仓库的 Issues 页面
+          </a>。
+        </li>
+        <li>
+          点击「New issue」，标题建议采用格式：
+          <code>[提案] &lt;简短标题&gt;</code>
+        </li>
+        <li>
+          在正文中按照上面的提案结构逐条填写。如果一时写不全，也可以先写“背景 + 你的建议 + 你最担心的风险”。
+        </li>
+        <li>
+          提交后，你可以随时补充、修改和回复他人的评论。
+        </li>
+      </ol>
+      <p class="muted">
+        未来如果有专门的提案系统和投票界面，这些 GitHub 提案可以迁移过去，
+        并作为未来讨论和投票的历史记录。
+      </p>
+    </div>
+
+    <h2>4. 写提案的一些小建议</h2>
+    <div class="card">
+      <ul>
+        <li>尽量用具体场景和数字来说明问题，而不是抽象口号。</li>
+        <li>不要害怕提出“激进”想法，只要你同时认真思考了风险和失败场景。</li>
+        <li>欢迎你提出对 Timee 的批评性提案，比如：
+          <ul>
+            <li>“这样的设计会不会让某些人被排除在外？”</li>
+            <li>“会不会无意中制造歧视或不公？”</li>
+          </ul>
+        </li>
+        <li>如果你不会用这个模板，也可以只写一段自然语言说明，
+          未来可以交给 AI 或其他志愿者帮忙整理成正式格式。</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>Timee / TEE · 提案模板 · 每一份认真写下的想法都很重要</div>
+    </div>
+  </footer>
+</body>
+</html>
