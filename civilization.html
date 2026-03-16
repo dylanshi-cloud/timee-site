@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>时币文明 · Timee Civilization</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --card: #111827;
+      --accent: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --warn: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+      color: var(--text);
+      line-height: 1.75;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.85));
+    }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f97316, #ea580c);
+      box-shadow: 0 0 14px rgba(248, 113, 113, 0.7);
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    main { padding: 28px 0 70px; }
+    h1, h2, h3 { margin: 0 0 14px; }
+    h1 { font-size: 28px; line-height: 1.25; }
+    h2 {
+      font-size: 18px;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin-top: 26px;
+    }
+    h3 { font-size: 15px; margin-top: 18px; color: #cbd5e1; }
+    p { margin: 8px 0 12px; font-size: 14px; }
+    .muted { color: var(--muted); font-size: 13px; }
+    .hero {
+      border: 1px solid rgba(55,65,81,0.9);
+      border-radius: 16px;
+      padding: 20px 18px;
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.14), transparent 55%),
+                  linear-gradient(to bottom right, rgba(15,23,42,0.96), rgba(15,23,42,0.95));
+      box-shadow: 0 22px 60px rgba(15,23,42,0.9);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.15);
+      border: 1px solid rgba(45, 212, 191, 0.4);
+      font-size: 12px;
+      color: #a5f3fc;
+    }
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34,197,94,0.8);
+    }
+    .quote {
+      border-left: 4px solid var(--warn);
+      background: rgba(245,158,11,0.10);
+      padding: 14px 14px 14px 14px;
+      border-radius: 10px;
+      margin: 14px 0;
+    }
+    .quote p { margin: 0; color: #fde68a; font-style: italic; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,0.96));
+      border-radius: 14px;
+      padding: 16px 15px;
+      border: 1px solid rgba(31,41,55,0.95);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.85);
+      font-size: 13px;
+    }
+    ul { margin: 6px 0 0 18px; padding: 0; font-size: 14px; }
+    li { margin-bottom: 6px; }
+    footer { padding: 16px 0 26px; font-size: 12px; color: var(--muted); text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><span class="logo-dot"></span><span>TIMEE</span></div>
+      <div class="nav-links">
+        <a href="civilization.html">文明</a>
+        <a href="index.html">首页</a>
+        <a href="charter.html">宪章</a>
+        <a href="participate.html">参与</a>
+        <a href="commons.html">Commons</a>
+        <a href="proposals.html">提案</a>
+        <a href="faq.html">FAQ</a>
+        <a href="docs.html">文档</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="top">
+      <div class="pill"><span class="pill-dot"></span>文明宣言 · 草案</div>
+      <h1 style="margin-top:10px;">时币文明（Timee Civilization）</h1>
+      <p class="muted">当 AI 取代工作，什么才是你的价值？这份宣言解释 Timee 的文明动机：为什么必须把“生命时间”放回价值体系中心。</p>
+      <div class="quote"><p>“存在不需要证明。时间不是商品。价值源于当下。”</p></div>
+      <p class="muted">
+        想看制度如何落地：去 <a href="charter.html">宪章速读</a>。想参与：去 <a href="participate.html">参与入口</a>、<a href="proposals.html">提案</a> 或 <a href="commons.html">Commons</a>。
+      </p>
+    </section>
+
+    <h2>序言：AI 时代的人类价值重塑</h2>
+    <p>
+      当人工智能以指数级速度发展，劳动——这个定义人类价值几千年的核心概念——正在失去历史意义。
+      当 AI 能完成 90% 以上的工作，我们必须回答：人类的价值在哪里？
+    </p>
+    <p>
+      时币文明的回答是：价值不再来自“劳动工时”，而来自“生命时间本身”。时间有限，因此每一分钟都有本体论价值。
+      我们拒绝将时间继续异化为“劳动商品”。
+    </p>
+    <ul>
+      <li><strong>存在不需要证明</strong>：不以劳动证明价值。</li>
+      <li><strong>时间不是商品</strong>：不把生命时间卖给系统。</li>
+      <li><strong>价值源于当下</strong>：货币锚定当下生命力，而非过去资本积累。</li>
+      <li><strong>共同繁荣</strong>：AI 时代生产力成果应当为全体共享，而不是集中到少数人。</li>
+    </ul>
+
+    <h2>第一编 · 诊断：劳动的终结与存在的危机</h2>
+    <div class="card">
+      <h3>劳动的终结</h3>
+      <p>当岗位被自动化取代，传统体系把人定义为“可替换劳动力”。岗位消失时，人被迫失去价值与尊严感，社会长期不稳定随之而来。</p>
+      <h3>价值悖论</h3>
+      <p>AI 带来前所未有的生产力，但财富可能更加集中。效率提升若不能转化为普遍福利，技术进步就会变成新的统治工具。</p>
+      <h3>存在危机</h3>
+      <p>当“你做什么”不再重要，人类必须重建“你是什么”的价值体系——让存在本身成为可被承认的价值来源。</p>
+    </div>
+
+    <h2>第二编 · 根基：生命时间的数字化身</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>TEE 是存在证明</h3>
+        <p>1 TEE / 分钟不是福利，而是“生存呼吸权”：只要活着，就在获得资源。存在本身就有价值。</p>
+      </div>
+      <div class="card">
+        <h3>死亡归公：文明续命</h3>
+        <p>自然死亡余额回流公共池而非家族继承，防止财富代际固化导致阶层断裂，把资源回归共同体以延续族群。</p>
+      </div>
+    </div>
+    <p class="muted">
+      这些文明主张在制度层面的对应关系，已经被写入 Timee 宪章：一人一账户、不可剥夺、公共池一人一票、AI 仅辅助、人类最终决策等。
+    </p>
+
+    <h2>第三编 · 路径：AI 负责效率，人类负责意义</h2>
+    <div class="card">
+      <ul>
+        <li><strong>AI 负责效率</strong>：生产、优化、计算、交付。</li>
+        <li><strong>人类负责意义</strong>：体验、关怀、艺术、探索、伦理与最终决策。</li>
+        <li><strong>TEE 作为通用接口</strong>：AI 的最终服务对象是拥有时间的人类；原则上，AI 服务应当以 TEE 定价与结算。</li>
+      </ul>
+      <p class="muted">这并不意味着立刻上线投机交易所。Timee 的顺序是：先规则、先安全、先小规模试验，再扩展场景。</p>
+    </div>
+
+    <h2>行动倡议：从哪里开始？</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>写一个提案</h3>
+        <p>提出公共池项目、规则修改、风控建议或应用场景。哪怕不完美，也要把影响和风险写出来。</p>
+        <p class="muted"><a href="proposals.html">去提案模板 →</a></p>
+      </div>
+      <div class="card">
+        <h3>贡献一条 Commons</h3>
+        <p>分享对社会有帮助的知识与资源。未来会成为公共池决策与提案的重要输入。</p>
+        <p class="muted"><a href="commons.html">去 Commons →</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>Timee / TEE · 文明宣言（草案）· 用于讨论与共建，不构成投资建议或法律意见。</div>
+    </div>
+  </footer>
+</body>
+</html>
+
+        <!-- 第一编 -->
+        <section id="part1">
+            <div class="chapter-divider">
+                <div class="chapter-number">01</div>
+                <div class="chapter-title">第一编 诊断</div>
+            </div>
+
+            <h1>第一编 诊断：AI时代的社会挑战</h1>
+            <p>本编深入分析AI时代人类面临的核心挑战，包括劳动的终结、价值悖论、存在危机以及时间与劳动关系的重构。通过系统性诊断，为后续的解决方案奠定基础。</p>
+        </section>
+
+        <section id="chapter1">
+            <h2>第1章 劳动的终结</h2>
+
+            <h3>1.1 AI革命的影响</h3>
+            <p>人工智能的快速发展正在彻底改变传统的劳动形态。从制造业到服务业，从蓝领到白领，AI都在以惊人的速度取代人类工作。根据预测，到2030年，全球将有8亿个工作岗位被自动化取代。</p>
+
+            <div class="case-card">
+                <div class="case-title">案例：自动驾驶的影响</div>
+                <p>自动驾驶技术的成熟将使全球3000多万职业司机失业。这不仅是经济问题，更是社会结构的根本性变革。当"司机"这个职业消失，我们该如何重新定义这些人的社会价值？</p>
+            </div>
+
+            <h3>1.2 传统价值体系的崩塌</h3>
+            <p>几千年来的文明建立在一个基本假设上：劳动创造价值。但这个假设正在崩塌。当AI能够更高效地完成劳动时，人类的价值在哪里？</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>传统价值维度</th>
+                        <th>AI时代的挑战</th>
+                        <th>新的价值方向</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>劳动创造价值</td>
+                        <td>AI取代劳动</td>
+                        <td>存在本身的价值</td>
+                    </tr>
+                    <tr>
+                        <td>技能决定地位</td>
+                        <td>AI超越人类技能</td>
+                        <td>创造力和情感价值</td>
+                    </tr>
+                    <tr>
+                        <td>收入等于贡献</td>
+                        <td>贡献难以量化</td>
+                        <td>基础收入保障</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="quote-card">
+                <p>当机器能够完成所有工作时，人类的价值不再在于"做什么"，而在于"是什么"。</p>
+            </div>
+
+            <h3>1.3 社会结构的重构</h3>
+            <p>劳动的终结意味着社会结构的全面重构。传统的阶级、身份、地位体系都需要重新思考。这是一个痛苦但必要的转型过程。</p>
+        </section>
+
+        <section id="chapter2">
+            <h2>第2章 价值悖论</h2>
+
+            <h3>2.1 生产与分配的矛盾</h3>
+            <p>AI带来了前所未有的生产力，但财富却越来越集中。这是典型的技术进步与分配正义之间的悖论。生产力的提升本应让所有人受益，但现实却相反。</p>
+
+            <h3>2.2 效率与公平的困境</h3>
+            <p>市场的效率追求与社会的公平诉求形成了尖锐矛盾。如何在保持技术创新活力的同时，确保发展的成果共享？这是AI时代必须解决的核心问题。</p>
+
+            <div class="case-card">
+                <div class="case-title">案例：平台经济的困境</div>
+                <p>外卖平台提高了送餐效率，但骑手的收入却在下降。算法的优化没有转化为劳动者的福利，而是转化为平台的利润。这种趋势必须被改变。</p>
+            </div>
+
+            <div class="quote-card">
+                <p>技术的进步应当服务于人类的福祉，而不是加剧人类的不平等。</p>
+            </div>
+
+            <h3>2.3 价值的重新定义</h3>
+            <p>我们需要重新定义什么是价值。价值不应该仅仅是经济价值，还应该包括社会价值、文化价值、生态价值、情感价值等多维度的价值。</p>
+        </section>
+
+        <section id="chapter3">
+            <h2>第3章 存在的危机</h2>
+
+            <h3>3.1 身份认同的迷失</h3>
+            <p>当劳动不再是身份的来源，人们开始迷失自己。"我是谁"这个问题变得前所未有的重要。很多人失去了存在的意义感。</p>
+
+            <h3>3.2 心理健康的挑战</h3>
+            <p>存在的危机带来了严重的心理健康问题。抑郁症、焦虑症的发病率在全球范围内上升。这是一个文明级别的健康危机。</p>
+
+            <div class="quote-card">
+                <p>存在的意义不是外部赋予的，而是内在生成的。我们需要的不是工作，而是意义的觉醒。</p>
+            </div>
+
+            <h3>3.3 社会关系的重组</h3>
+            <p>传统的社会关系建立在职业和地域基础上。当这些基础改变时，社会关系也需要重组。如何在新的基础上建立健康的社会连接？</p>
+        </section>
+
+        <section id="chapter4">
+            <h2>第4章 时间与劳动</h2>
+
+            <h3>4.1 时间的商品化历史</h3>
+            <p>工业革命以来，时间被商品化了。"时间就是金钱"成为资本主义的核心价值观。这种观念深深植入现代社会。</p>
+
+            <h3>4.2 时间的解放</h3>
+            <p>AI时代带来了时间解放的可能性。当机器承担大部分劳动时，人类可以重新获得对时间的控制权。这是历史性的机会。</p>
+
+            <div class="quote-card">
+                <p>时间不是金钱，时间是生命。我们不应该出卖时间，而应该享受时间。</p>
+            </div>
+
+            <h3>4.3 时币的提出</h3>
+            <p>时币是对时间解放的制度化回应。它承认每个人的时间价值，为基础收入和公共福利提供理论基础。</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>传统观念</th>
+                        <th>时币观念</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>时间就是金钱</td>
+                        <td>时间是生命</td>
+                    </tr>
+                    <tr>
+                        <td>出卖时间换收入</td>
+                        <td>享受时间创造价值</td>
+                    </tr>
+                    <tr>
+                        <td>工作时间价值高</td>
+                        <td>所有时间等值</td>
+                    </tr>
+                    <tr>
+                        <td>效率优先</td>
+                        <td>意义优先</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 第二编 -->
+        <section id="part2">
+            <div class="chapter-divider">
+                <div class="chapter-number">02</div>
+                <div class="chapter-title">第二编 根基</div>
+            </div>
+
+            <h1>第二编 根基：时币文明的理论基础</h1>
+            <p>本编建立时币文明的哲学和理论基础，包括存在哲学、时间理论和时币理论，为实践方案提供思想支撑。</p>
+        </section>
+
+        <section id="chapter5">
+            <h2>第5章 存在的哲学</h2>
+
+            <h3>5.1 存在主义的核心</h3>
+            <p>存在主义强调存在先于本质。这意味着人的存在本身就是价值，不需要外部的证明或赋予。这一思想为时币文明提供了哲学基础。</p>
+
+            <h3>5.2 海德格尔的存在论</h3>
+            <p>海德格尔的存在论认为，人是"此在"，通过在世存在来理解自己的存在。AI时代，我们需要重新理解"在世存在"的意义。</p>
+
+            <div class="quote-card">
+                <p>存在不是被给定的，而是被创造的。每个当下都是存在自我实现的机会。</p>
+            </div>
+
+            <h3>5.3 萨特的自由观</h3>
+            <p>萨特强调人的绝对自由。这种自由不是从劳动中获得的，而是存在本身赋予的。时币文明就是这种自由的制度化表达。</p>
+        </section>
+
+        <section id="chapter6">
+            <h2>第6章 时间的新义</h2>
+
+            <h3>6.1 时间的现象学</h3>
+            <p>时间不是客观的物理量，而是主观的生命体验。每个人的时间都有独特的意义和价值。</p>
+
+            <h3>6.2 柏格森的绵延</h3>
+            <p>柏格森的"绵延"概念打破了时间作为连续均质流动的理解。时间是有质量、有深度的生命流动。</p>
+
+            <div class="quote-card">
+                <p>真正的自由是在时间中实现自我，而不是被时间奴役。</p>
+            </div>
+
+            <h3>6.3 时间的价值化</h3>
+            <p>时币理论的核心是将时间价值化，但不是商品化。每单位时间都有固有的价值，这种价值不依赖于外部交换。</p>
+        </section>
+
+        <section id="chapter7">
+            <h2>第7章 时币的理论</h2>
+
+            <h3>7.1 时币的定义</h3>
+            <p>时币是以时间为价值本位的新型价值单位。它承认每个人每单位时间的等值性，为AI时代的价值分配提供基础。</p>
+
+            <h3>7.2 时币的特点</h3>
+            <ul>
+                <li><strong>内在价值</strong>：时币的价值来源于时间本身，而非外部认可</li>
+                <li><strong>公平分配</strong>：每单位时间等值，确保基本公平</li>
+                <li><strong>不可积累</strong>：时币有使用期限，防止过度积累</li>
+                <li><strong>社会属性</strong>：时币是社会共识，不是私人财产</li>
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>维度</th>
+                        <th>传统货币</th>
+                        <th>时币</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>价值来源</td>
+                        <td>交换价值</td>
+                        <td>存在价值</td>
+                    </tr>
+                    <tr>
+                        <td>分配原则</td>
+                        <td>按贡献分配</td>
+                        <td>按时间分配</td>
+                    </tr>
+                    <tr>
+                        <td>积累性</td>
+                        <td>可无限积累</td>
+                        <td>有限期限</td>
+                    </tr>
+                    <tr>
+                        <td>社会功能</td>
+                        <td>促进交换</td>
+                        <td>保障生存</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>7.3 时币的经济学意义</h3>
+            <p>时币不是要替代传统货币，而是与之形成双轨制。传统货币负责市场交换，时币负责基本生存保障。这种双轨制可以解决AI时代的分配难题。</p>
+
+            <div class="quote-card">
+                <p>时币不是福利，而是权利。每个人都有权获得与生命等长的时币保障。</p>
+            </div>
+        </section>
+
+        <!-- 第三编 -->
+        <section id="part3">
+            <div class="chapter-divider">
+                <div class="chapter-number">03</div>
+                <div class="chapter-title">第三编 路径</div>
+            </div>
+
+            <h1>第三编 路径：时币文明的实现路径</h1>
+            <p>本编探讨时币文明的技术架构、全球治理、实施路径、风险防控、法律框架、社会适应和文化转型等实践问题。</p>
+        </section>
+
+        <section id="chapter8">
+            <h2>第8章 技术架构</h2>
+
+            <h3>8.1 区块链技术的应用</h3>
+            <p>时币系统建立在区块链技术之上，确保透明、不可篡改、去中心化。每个公民都有唯一的数字身份，时币的分配和使用都可以追溯。</p>
+
+            <h3>8.2 AI在时币系统中的作用</h3>
+            <p>AI不仅取代人类劳动，也被用于时币系统的管理和优化。智能合约自动执行时币的分配规则，确保公平高效。</p>
+
+            <div class="case-card">
+                <div class="case-title">技术架构示例</div>
+                <p>公民数字身份 → 时间记录系统 → 时币生成模块 → 分配算法 → 钱包系统 → 交易网络 → 监管系统</p>
+            </div>
+
+            <h3>8.3 数据隐私与安全</h3>
+            <p>时币系统涉及每个人的时间数据，隐私保护至关重要。采用加密技术、零知识证明等手段确保数据安全。</p>
+
+            <div class="quote-card">
+                <p>技术必须服务于人权，而不是侵犯人权。隐私是时币系统的核心原则。</p>
+            </div>
+        </section>
+
+        <section id="chapter9">
+            <h2>第9章 全球治理</h2>
+
+            <h3>9.1 全球时币组织</h3>
+            <p>建立全球时币组织（GTO），负责制定时币的国际标准、协调各国政策、处理跨境纠纷。</p>
+
+            <h3>9.2 国家层面的实施</h3>
+            <p>各国根据国情建立时币实施机构，制定本国的时币政策，与全球标准对接。</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>治理层级</th>
+                        <th>主要职责</th>
+                        <th>关键挑战</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>全球</td>
+                        <td>制定标准、协调政策</td>
+                        <td>各国利益平衡</td>
+                    </tr>
+                    <tr>
+                        <td>区域</td>
+                        <td>区域协调、经验共享</td>
+                        <td>文化差异</td>
+                    </tr>
+                    <tr>
+                        <td>国家</td>
+                        <td>政策制定、实施监管</td>
+                        <td>政治接受度</td>
+                    </tr>
+                    <tr>
+                        <td>地方</td>
+                        <td>具体执行、服务民众</td>
+                        <td>资源限制</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="quote-card">
+                <p>全球挑战需要全球合作。时币文明是人类共同的事业。</p>
+            </div>
+
+            <h3>9.3 多边协调机制</h3>
+            <p>建立多边协调机制，包括定期峰会、技术工作组、政策对话平台等，确保时币系统的平稳运行。</p>
+        </section>
+
+        <section id="chapter10">
+            <h2>第10章 实施路径</h2>
+
+            <h3>10.1 试点先行</h3>
+            <p>在条件成熟的地区进行试点，积累经验、发现问题、完善方案。试点地区应具备较好的数字化基础和社会接受度。</p>
+
+            <h3>10.2 渐进推广</h3>
+            <p>从试点到全国推广，再到全球普及，需要一个渐进的过程。每个阶段都要确保系统的稳定性和公平性。</p>
+
+            <div class="case-card">
+                <div class="case-title">实施阶段</div>
+                <p>阶段一：技术准备（1-2年）→ 阶段二：试点运行（2-3年）→ 阶段三：区域推广（3-5年）→ 阶段四：全国实施（5-10年）→ 阶段五：全球普及（10-20年）</p>
+            </div>
+
+            <h3>10.3 能力建设</h3>
+            <p>大规模的时币实施需要相应的能力建设，包括技术培训、宣传教育、机构建设等。</p>
+        </section>
+
+        <section id="chapter11">
+            <h2>第11章 风险防控</h2>
+
+            <h3>11.1 技术风险</h3>
+            <p>区块链系统的安全性、AI算法的公平性、数据隐私的保护等技术风险需要认真应对。</p>
+
+            <h3>11.2 经济风险</h3>
+            <p>时币的引入可能对传统经济产生冲击，需要设计过渡机制，避免经济波动。</p>
+
+            <div class="quote-card">
+                <p>创新需要勇气，但也需要谨慎。风险管理是时币文明成功的关键。</p>
+            </div>
+
+            <h3>11.3 社会风险</h3>
+            <p>社会接受度、文化冲突、政治阻力等社会风险需要通过宣传教育、利益协调等方式化解。</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>风险类型</th>
+                        <th>可能影响</th>
+                        <th>应对策略</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>技术风险</td>
+                        <td>系统故障、数据泄露</td>
+                        <td>多重备份、加密技术</td>
+                    </tr>
+                    <tr>
+                        <td>经济风险</td>
+                        <td>通胀、金融动荡</td>
+                        <td>双轨制、过渡机制</td>
+                    </tr>
+                    <tr>
+                        <td>社会风险</td>
+                        <td>抵制、冲突</td>
+                        <td>宣传教育、民主参与</td>
+                    </tr>
+                    <tr>
+                        <td>政治风险</td>
+                        <td>权力博弈</td>
+                        <td>国际合作、制度设计</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="chapter12">
+            <h2>第12章 法律框架</h2>
+
+            <h3>12.1 时币的法律地位</h3>
+            <p>需要明确时币在法律体系中的地位，包括其财产属性、使用范围、监管规则等。</p>
+
+            <h3>12.2 公民权利保障</h3>
+            <p>确保公民获得时币的权利不受侵犯，建立有效的申诉和救济机制。</p>
+
+            <div class="quote-card">
+                <p>权利必须由法律保障。时币不是恩赐，而是法律确认的基本权利。</p>
+            </div>
+
+            <h3>12.3 监管体系</h3>
+            <p>建立全方位的监管体系，确保时币系统的透明、公平、高效运行。</p>
+        </section>
+
+        <section id="chapter13">
+            <h2>第13章 社会适应</h2>
+
+            <h3>13.1 就业观念的转变</h3>
+            <p>从"工作=生存"到"工作=自我实现"的转变，需要一个适应过程。教育、媒体、社会组织都要参与这个转变。</p>
+
+            <h3>13.2 新的社会角色</h3>
+            <p>当劳动不再是主要的社会角色，人们需要找到新的身份认同和社会定位。</p>
+
+            <div class="case-card">
+                <div class="case-title">新的社会角色示例</div>
+                <p>创造者、探索者、连接者、守护者、学习者、分享者、美学家、哲学家、艺术家...</p>
+            </div>
+
+            <h3>13.3 社区重建</h3>
+            <p>在原子化的现代社会，需要重建社区联系，创造新的社会纽带。</p>
+        </section>
+
+        <section id="chapter14">
+            <h2>第14章 文化转型</h2>
+
+            <h3>14.1 价值观的重塑</h3>
+            <p>从"劳动至上"到"存在至上"的价值观转变，是时币文明的文化基础。</p>
+
+            <h3>14.2 教育的革新</h3>
+            <p>教育要培养人的创造力、情感力、反思力，而不是单纯的知识和技能。</p>
+
+            <div class="quote-card">
+                <p>教育的目标不是培养工人，而是培养完整的人。时币文明需要新的教育理念。</p>
+            </div>
+
+            <h3>14.3 艺术与人文的复兴</h3>
+            <p>当物质需求得到基本保障，艺术和人文将迎来复兴。这是时币文明的重要特征。</p>
+        </section>
+
+        <!-- 第四编 -->
+        <section id="part4">
+            <div class="chapter-divider">
+                <div class="chapter-number">04</div>
+                <div class="chapter-title">第四编 方案</div>
+            </div>
+
+            <h1>第四编 方案：时币文明的具体方案</h1>
+            <p>本编提出时币文明的三阶段实施计划、百年宣言、未来展望和行动倡议，为实际操作提供具体方案。</p>
+        </section>
+
+        <section id="chapter15">
+            <h2>第15章 三阶段计划</h2>
+
+            <h3>15.1 第一阶段（2026-2030）：基础建设</h3>
+            <p>建立技术基础设施，制定法律框架，开展试点项目，培养人才队伍。</p>
+
+            <h3>15.2 第二阶段（2030-2040）：全面推进</h3>
+            <p>在全国范围推广时币系统，完善治理机制，解决实施中的问题。</p>
+
+            <h3>15.3 第三阶段（2040-2060）：全球普及</h3>
+            <p>推动时币文明的全球化，建立全球治理体系，实现人类共同繁荣。</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>阶段</th>
+                        <th>时间</th>
+                        <th>主要目标</th>
+                        <th>关键指标</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>第一阶段</td>
+                        <td>2026-2030</td>
+                        <td>基础建设</td>
+                        <td>试点覆盖率30%</td>
+                    </tr>
+                    <tr>
+                        <td>第二阶段</td>
+                        <td>2030-2040</td>
+                        <td>全面推进</td>
+                        <td>全国覆盖率100%</td>
+                    </tr>
+                    <tr>
+                        <td>第三阶段</td>
+                        <td>2040-2060</td>
+                        <td>全球普及</td>
+                        <td>全球覆盖率80%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="quote-card">
+                <p>伟大事业需要时间。时币文明不是一蹴而就的，而是几代人的共同使命。</p>
+            </div>
+        </section>
+
+        <section id="chapter16">
+            <h2>第16章 百年宣言</h2>
+
+            <h3>16.1 人类命运共同体</h3>
+            <p>时币文明的终极目标是建立人类命运共同体，实现全人类的共同繁荣和可持续发展。</p>
+
+            <h3>16.2 技术向善</h3>
+            <p>技术必须服务于人类的福祉，而不是相反。这是时币文明的核心原则。</p>
+
+            <div class="quote-card">
+                <p>我们相信，技术的进步可以让人类获得更多的自由，而不是更多的束缚。</p>
+            </div>
+
+            <h3>16.3 可持续的未来</h3>
+            <p>时币文明不仅关注当下的公平，也关注未来的可持续性。这是对子孙后代的责任。</p>
+        </section>
+
+        <section id="chapter17">
+            <h2>第17章 未来展望</h2>
+
+            <h3>17.1 2050年的世界</h3>
+            <p>到2050年，时币文明将在全球范围内初步建立。人类将从生存焦虑中解放出来，追求更高层次的自我实现。</p>
+
+            <h3>17.2 2100年的愿景</h3>
+            <p>到2100年，时币文明将完全成熟。人类将进入一个真正自由、平等、博爱的新时代。</p>
+
+            <h3>17.3 更远的未来</h3>
+            <p>时币文明是一个开放的系统，它将随着人类文明的发展而不断进化。</p>
+        </section>
+
+        <section id="chapter18">
+            <h2>第18章 行动倡议</h2>
+
+            <h3>18.1 个人层面的行动</h3>
+            <p>每个人都应该开始思考自己在时币文明中的角色，积极学习、参与讨论、贡献智慧。</p>
+
+            <h3>18.2 组织层面的行动</h3>
+            <p>企业、社会组织、教育机构都应该参与到时币文明的构建中来，承担相应的社会责任。</p>
+
+            <h3>18.3 国家层面的行动</h3>
+            <p>政府应该积极研究和探索时币制度的可行性，为未来的转型做好准备。</p>
+
+            <div class="quote-card">
+                <p>历史的潮流不可阻挡，但历史的方向需要我们去塑造。现在就是行动的时刻。</p>
+            </div>
+
+            <h3>18.4 全球合作</h3>
+            <p>时币文明是全球性的挑战，需要全球性的合作。让我们携手共建人类的美好未来。</p>
+        </section>
+
+        <!-- 附录 -->
+        <section id="appendix">
+            <div class="chapter-divider">
+                <div class="chapter-number">附录</div>
+                <div class="chapter-title">参考资料与延伸阅读</div>
+            </div>
+
+            <h1>附录</h1>
+
+            <h2>参考资料</h2>
+            <ul>
+                <li>《存在与时间》- 马丁·海德格尔</li>
+                <li>《存在与虚无》- 让-保罗·萨特</li>
+                <li>《时间与自由意志》- 亨利·柏格森</li>
+                <li>《第二机器时代》- 埃里克·布林约尔松</li>
+                <li>《机器人时代》- 马丁·福特</li>
+            </ul>
+
+            <h2>延伸阅读</h2>
+            <ul>
+                <li>《基本收入：构建自由社会的坚实基础》</li>
+                <li>《后资本主义时代》</li>
+                <li>《人类简史》- 尤瓦尔·赫拉利</li>
+                <li>《未来简史》- 尤瓦尔·赫拉利</li>
+            </ul>
+
+            <h2>术语表</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>术语</th>
+                        <th>定义</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>时币</td>
+                        <td>以时间为价值本位的新型价值单位</td>
+                    </tr>
+                    <tr>
+                        <td>存在价值</td>
+                        <td>基于存在本身的价值，不依赖于外部认可</td>
+                    </tr>
+                    <tr>
+                        <td>时间解放</td>
+                        <td>人类重新获得对时间的控制权</td>
+                    </tr>
+                    <tr>
+                        <td>双轨制</td>
+                        <td>传统货币与时币并行的价值分配制度</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 页脚 -->
+        <footer id="footer">
+            <h3>时币文明 - Timee Civilization</h3>
+            <p>当AI取代工作，什么才是你的价值？</p>
+            <p>© 2026 时币文明研究小组 版权所有</p>
+            <p>联系我们：contact@timeeciv.org</p>
+        </footer>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // 滚动到指定章节
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                
+                // 更新侧边栏激活状态
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                event.currentTarget.classList.add('active');
+            }
+        }
+
+        // 回到顶部
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 更新进度条和导航激活状态
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+
+            // 显示/隐藏回到顶部按钮
+            const backToTop = document.getElementById('backToTop');
+            if (winScroll > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+
+            // 更新导航栏激活状态
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (winScroll >= sectionTop - 100 && winScroll < sectionTop + sectionHeight - 100) {
+                    navItems.forEach(item => item.classList.remove('active'));
+                    if (navItems[index]) {
+                        navItems[index].classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // 搜索功能
+        function searchFunction() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase();
+            const navItems = document.querySelectorAll('.nav-item');
+
+            navItems.forEach(item => {
+                const text = item.textContent || item.innerText;
+                if (text.toUpperCase().indexOf(filter) > -1) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // 移动端侧边栏切换
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
