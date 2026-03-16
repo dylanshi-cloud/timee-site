@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Timee 宪章速读 · 硬规则与制度骨架</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --bg:#050816; --card:#111827; --accent:#38bdf8; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937; }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;background:radial-gradient(circle at top,#0f172a 0,#020617 55%);color:var(--text);line-height:1.7;}
+    a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
+    header{border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;backdrop-filter:blur(18px);background:linear-gradient(to bottom,rgba(15,23,42,0.95),rgba(15,23,42,0.85));}
+    .container{max-width:980px;margin:0 auto;padding:0 16px;}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+    .logo{font-weight:700;letter-spacing:0.08em;text-transform:uppercase;font-size:14px;display:flex;align-items:center;gap:8px;}
+    .logo-dot{width:9px;height:9px;border-radius:999px;background:radial-gradient(circle at 30% 30%,#f97316,#ea580c);box-shadow:0 0 14px rgba(248,113,113,0.7);}
+    .nav-links{display:flex;gap:16px;font-size:14px;flex-wrap:wrap;justify-content:flex-end;}
+    main{padding:28px 0 70px;}
+    h1,h2,h3{margin:0 0 14px;}
+    h1{font-size:26px;line-height:1.25;}
+    h2{font-size:18px;border-left:3px solid var(--accent);padding-left:10px;margin-top:22px;}
+    p{margin:8px 0 12px;font-size:14px;}
+    .muted{color:var(--muted);font-size:13px;}
+    .hero{border:1px solid rgba(55,65,81,0.9);border-radius:16px;padding:18px 16px;background:radial-gradient(circle at top left, rgba(56,189,248,0.14), transparent 55%),linear-gradient(to bottom right, rgba(15,23,42,0.96), rgba(15,23,42,0.95));box-shadow:0 22px 60px rgba(15,23,42,0.9);}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px;}
+    @media (max-width:820px){.grid{grid-template-columns:1fr;}}
+    .card{background:linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,0.96));border-radius:14px;padding:16px 15px;border:1px solid rgba(31,41,55,0.95);box-shadow:0 16px 40px rgba(15,23,42,0.85);font-size:13px;}
+    ul{margin:6px 0 0 18px;padding:0;font-size:14px;} li{margin-bottom:6px;}
+    footer{padding:16px 0 26px;font-size:12px;color:var(--muted);text-align:center;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><span class="logo-dot"></span><span>TIMEE</span></div>
+      <div class="nav-links">
+        <a href="civilization.html">文明</a>
+        <a href="index.html">首页</a>
+        <a href="charter.html">宪章</a>
+        <a href="participate.html">参与</a>
+        <a href="commons.html">Commons</a>
+        <a href="proposals.html">提案</a>
+        <a href="faq.html">FAQ</a>
+        <a href="docs.html">文档</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Timee 宪章速读：硬规则与制度骨架</h1>
+      <p class="muted">
+        本页只讲“怎么做”（制度骨架），不重复长篇文明宣言。想看“为什么”：去 <a href="civilization.html">文明</a>。
+      </p>
+      <p class="muted">
+        关键提醒：当前阶段不进行实名认证发币、不提供法币兑换、不做投机交易所。先规则、先安全、先小规模验证。
+      </p>
+    </section>
+
+    <h2>1. 发行与基本权利</h2>
+    <div class="card">
+      <ul>
+        <li><strong>固定发行</strong>：每位自然人自出生起按固定速率获得 TEE（宪章 v0.1：<strong>1 TEE / 分钟</strong>）。</li>
+        <li><strong>一人一账户</strong>：防止女巫攻击与重复申领（身份唯一性为后续重点）。</li>
+        <li><strong>个人所有不可剥夺</strong>：未经本人同意不得划转、剥离或代扣。</li>
+      </ul>
+    </div>
+
+    <h2>2. 交易安全：72 小时撤销 + 双层余额</h2>
+    <div class="card">
+      <ul>
+        <li><strong>P2P 转账默认 72 小时可撤销</strong>：入账先进入“暂定余额（Pending）”，到期无争议才转为“最终余额（Final）”。</li>
+        <li><strong>暂定余额限制</strong>：撤销窗口内限制再转账与高风险用途，阻断诈骗资金快速扩散。</li>
+        <li><strong>追偿基金（RF）</strong>：对欺诈/胁迫受害者提供有限救济，并启动追缴流程。</li>
+      </ul>
+    </div>
+
+    <h2>3. 死亡与公共池：防代际固化、回归共同体</h2>
+    <div class="card">
+      <ul>
+        <li><strong>死亡不继承</strong>：余额不进入继承链。</li>
+        <li><strong>自然死亡归公</strong>：符合规则者余额进入公共池（PP），用于公共服务与设施建设。</li>
+        <li><strong>公共池透明</strong>：收入、支出、合同、验收与审计公开可查。</li>
+      </ul>
+    </div>
+
+    <h2>4. 治理原则：一人一票 + AI 仅辅助</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>一人一票</h3>
+        <p class="muted">公共池决策坚持一人一票，而不是按持币多少投票；不把治理权卖给资金。</p>
+      </div>
+      <div class="card">
+        <h3>AI 只做顾问</h3>
+        <p class="muted">AI 可以生成多方案与影响分析，但人类做最终决策；AI 不得在无人复核情况下直接冻结或剥夺个人资产。</p>
+      </div>
+    </div>
+
+    <h2>5. 去读原文（建议你上传这些文件到 GitHub 仓库根目录）</h2>
+    <div class="card">
+      <ul>
+        <li><a href="Timee_Charter_v0.1.pdf">宪章 PDF：Timee_Charter_v0.1.pdf</a></li>
+        <li><a href="Timee_Charter_v0.1.md">宪章 Markdown：Timee_Charter_v0.1.md</a></li>
+        <li><a href="Timee_Roadmap_v0.1.md">推进路线图：Timee_Roadmap_v0.1.md</a></li>
+      </ul>
+      <p class="muted">如果这些链接暂时 404，说明对应文件还没上传到你的网站仓库。把文件上传后链接就会自动生效。</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>Timee / TEE · 宪章速读 · 用于讨论与共建，不构成投资建议或法律意见。</div>
+    </div>
+  </footer>
+</body>
+</html>
+
